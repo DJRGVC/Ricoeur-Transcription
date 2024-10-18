@@ -1,4 +1,4 @@
-# Paul Ricoeur Transcription Project
+# Paul Ricoeur Transcription Project (Digital Ricoeur)
 
 **Author**: Daniel Grant  
 **Date**: October 17, 2024  
