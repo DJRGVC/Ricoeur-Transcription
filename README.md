@@ -1,12 +1,19 @@
 # Paul Ricoeur Transcription Project (Digital Ricoeur)
 
 **Author**: Daniel Grant  
+
 **Date**: October 17, 2024  
+
 **Institution**: Bowdoin College  
+
 **Position**: Digital and Computational Studies Research Assistant  
+
 **Advisor**: Fernando Nascimento  
+
 **Contact**: [dgrant2@bowdoin.edu](mailto:dgrant2@bowdoin.edu)  
+
 **Advisor's Email**: [fnasc@bowdoin.edu](mailto:fnasc@bowdoin.edu)
+
 
 ## Project Overview
 
