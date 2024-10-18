@@ -1,0 +1,4 @@
+# Dependencies for Ricoeur training, testing, and evaluation.
+python-pptx==0.6.21  # Required for extracting text and images from pptx files
+python_version >= "3.11"  # Ensure Python 3.11 or newer is used
+
