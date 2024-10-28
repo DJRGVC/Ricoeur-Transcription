@@ -14,7 +14,7 @@ if os.path.exists(base_dir):
 os.makedirs(images_dir)
 
 # Load the presentation
-prs = Presentation("your_presentation.pptx")  # Change this to the path of your downloaded presentation
+prs = Presentation("../presentation_data/RIC.pptx")  # Change this to the path of your downloaded presentation
 
 # List to store slide data (image paths and corresponding text)
 slide_data = []
