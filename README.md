@@ -2,11 +2,9 @@
 
 **Author**: Daniel Grant  
 
-**Date**: October 17, 2024  
+**Date Begun**: October 17, 2024  
 
 **Institution**: Bowdoin College  
-
-**Position**: Digital and Computational Studies Research Assistant  
 
 **Advisor**: Fernando Nascimento  
 
@@ -20,18 +18,24 @@
 This project aims to transcribe the notes and lecture materials of French philosopher Paul Ricoeur using AI-powered handwriting and text recognition technology. The goal is to develop an efficient, scalable solution for digitizing and preserving these important philosophical documents, making them more accessible to scholars and the public.
 
 
-
 ## Objectives
 
-1. **Handwriting Recognition**: Utilize advanced AI-based tools to transcribe handwritten notes.
+1. **Handwriting Recognition**: Utilize advanced OCR tools to transcribe handwritten notes.
 2. **Text Processing**: Refine transcribed text for accuracy and readability.
 3. **Digitization**: Organize and format the transcriptions for academic use.
 4. **Analysis**: Explore methods for analyzing the transcribed data to reveal Ricoeur's thought processes and lecture methodologies.
 
+## Roadmap
+
+[x] Expert-verified transcription of 400+ pages of handwritten Ricoeur Notes
+[x] Convert into labelled dataset with image + transcription pairs
+[x] Complete text segmentation to create OCR training pipeline friendly dataset
+[] Match bounding boxes with ground-truth data
+[] Train OCR model(s), compare efficacy by testing with ground-truth data
+
 ## Tools and Technologies
 
-- AI-powered handwriting recognition (e.g., OCR models)
-- Text analysis libraries and frameworks (e.g., Python, TensorFlow, Tesseract)
+- OCR tools for text segmentation and transciption (e.g., EasyOCR, PaddleOCR, Tesseract, Keras_OCR,... )
 - Version control: GitHub
 
 ## Workflow
