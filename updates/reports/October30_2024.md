@@ -39,7 +39,7 @@ Most promising. Segmentation seems to be somewhat more granular when compared to
 ![Tesseract_2](../images/slide_247_image_1.png_tesseractOCR.png) 
 ![Tesseract_3](../images/slide_437_image_1.png_tesseractOCR.png) 
 
-Very inconsistent results with Tesseract.
+Very inconsistent results with Tesseract. Not the tool best suited for the segmentation of handwritten text.
 
 **PaddleOCR**:
 
