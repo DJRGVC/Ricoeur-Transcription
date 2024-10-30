@@ -62,10 +62,10 @@ This project aims to transcribe the notes and lecture materials of French philos
 
 ### Expert's Transcription
 
-```
+
 The applicability of rules to instances does not require a commerce between faculties; the transition from pure categories to categories in use implies, of course, the interpretation of the categories in terms of time. But this is done in the second and third Analogies. If we add the spatial reference given by the first analogy and the refutation of idealism, then nothing more is required for the application. It is only because of the confusion between the metaphysical argument and the imaginary subject of transcendental psychology that Kant feels obliged to give some accounts of the of mind's operations which produce the unity and connectedness of experience. Then we get the story of “synthesis.” 32 The story of synthesis is not necessary to [...] of the strictly analytical argument. Such is the reason why imagination is omitted (four quotations besides discussion on genius 282 sq. 
 32, 61, 66, 97
-```
+
 
 ![Example_2](updates/images/readme_ex_435.png)
 
@@ -73,11 +73,11 @@ The applicability of rules to instances does not require a commerce between facu
 
 ### Expert's Transcription
 
-```
+
 41 
 It is noticeable that Strawson pays no attention to the distinction between finite and infinite intuition which is the touchstone of the whole doctrine for Heidegger. It is “further information,” no further enlightenment” (41) for Strawson. May be, because it belongs to ontological discourse, not to psychological idiom. Therefore, mere violation of Kant’s own principle of significance.
 The "cooperation” of sensibility and underlying is the translation in the idiom of the faculties of a problem which has to be rephrase[d] according to the principle of significance: “for experience to be possible at all, we must become aware of particular items, and become aware of them as falling under general concepts” (42).
-```
+
 
 ## Website
 
