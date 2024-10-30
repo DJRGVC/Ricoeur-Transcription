@@ -1,5 +1,9 @@
 # Paul Ricoeur Transcription Project (Digital Ricoeur)
 
+<p align="center">
+  <img src="https://github.com/waldyr/Sublime-Installer/blob/master/sublime_text.png?raw=true" alt="Ricoeur"/>
+</p>
+
 **Author**: Daniel Grant  
 
 **Date Begun**: October 17, 2024  
@@ -49,6 +53,14 @@ This project aims to transcribe the notes and lecture materials of French philos
 3. **Transcription**: Run the AI models on the notes to generate text.
 4. **Verification**: Manually verify produced texts for accuracy and completeness.
 5. **Final Output**: Compile the verified texts for Digital Ricoeur project.
+
+## Examples (of Ricoeur's Handwriting)
+
+![Example_1](updates/images/readme_ex_415.png)
+
+![Example_2](updates/images/readme_ex_431.png)
+
+![Example_3](updates/images/readme_ex_435.png)
 
 ## Website
 
