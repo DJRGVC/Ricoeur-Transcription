@@ -33,7 +33,7 @@ The following are some results of my testing:
 
 **Tesseract**:
 
-![Tesseract_1](updates/images/slide_112_image_1.png_tesseractOCR.png) 
+![Tesseract_1](../images/slide_112_image_1.png_tesseractOCR.png) 
 ![Tesseract_2](updates/images/slide_247_image_1.png_tesseractOCR.png) 
 ![Tesseract_3](updates/images/slide_437_image_1.png_tesseractOCR.png) 
 
