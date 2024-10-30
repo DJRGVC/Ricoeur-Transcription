@@ -1,4 +1,4 @@
-# Update Title: [Update 1: Initial Approach, Text Segmentation, and Towards OCR Training]
+# Update 1: Initial Approach, Text Segmentation, and Towards OCR Training
 
 **Date**: October 30, 2021
 **Author**: Daniel Grant  
