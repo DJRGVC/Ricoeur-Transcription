@@ -17,6 +17,10 @@
 
 This project aims to transcribe the notes and lecture materials of French philosopher Paul Ricoeur using AI-powered handwriting and text recognition technology. The goal is to develop an efficient, scalable solution for digitizing and preserving these important philosophical documents, making them more accessible to scholars and the public.
 
+## Recent Updates
+
+- [Update 1: Initial Approach, Text Segmentation, and Towards OCR Training](updates/reports/October30_2024.md)
+
 
 ## Objectives
 
