@@ -90,6 +90,7 @@ For more information on related work and additional resources, visit the [Digita
 
 ## Acknowledgments
 
-This research is being conducted under the guidance of Professor Fernando Nascimento at Bowdoin College. Special thanks to the Digital and Computational Studies Department for their support.
+This research is being conducted under the guidance of Professor Fernando Nascimento at Bowdoin College. Special thanks to the Digital and Computational Studies Department for their support. Also, I would like to acknowledge those who have contributed to the Digital Ricoeur project and the preservation of Ricoeur's work before my involvement.
+
 
 
