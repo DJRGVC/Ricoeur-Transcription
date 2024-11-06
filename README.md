@@ -33,13 +33,14 @@ This project aims to transcribe the notes and lecture materials of French philos
 3. **Digitization**: Organize and format the transcriptions for academic use.
 4. **Analysis**: Explore methods for analyzing the transcribed data to reveal Ricoeur's thought processes and lecture methodologies.
 
+
 ## Roadmap
 
-[x] Expert-verified transcription of 400+ pages of handwritten Ricoeur Notes
-[x] Convert into labelled dataset with image + transcription pairs
-[x] Complete text segmentation to create OCR training pipeline friendly dataset
-[] Match bounding boxes with ground-truth data
-[] Train OCR model(s), compare efficacy by testing with ground-truth data
+- [x] Expert-verified transcription of 400+ pages of handwritten Ricoeur Notes
+- [x] Convert into labelled dataset with image + transcription pairs
+- [x] Complete text segmentation to create OCR training pipeline friendly dataset
+- [ ] Match bounding boxes with ground-truth data
+- [ ] Train OCR model(s), compare efficacy by testing with ground-truth data
 
 ## Tools and Technologies
 
