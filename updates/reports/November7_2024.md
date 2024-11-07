@@ -34,31 +34,46 @@ Finally, I additionally tried using a slight gaussian blur to correct for the ha
 The results of this testing are shown below.
 
 
+
 ### Threshhold + Gaussian Testing
 
 I have included two images of differing complexity below to show the results of  my thresholding and gaussian blur testing.
 
 #### Example 1
-![Image1_Threshold_1](../images/Update2/processed_slide_179_image_1_['40', '20', '0', '-20'].png)
 
-![Image1_Threshold_1_gaussian](../images/Update2/processed_slide_179_image_1_['40', '20', '0', '-20']_gaussian.png)
+Here is the original Image:
+
+![Image1_Original](../images/Update2/original_slide_179_image_1.png)
+
+Now, here is the image after thresholding and gaussian blur:
+
+![Image1_Threshold_1](../images/Update2/processed_slide_179_image_40.png)
+
+![Image1_Threshold_1_gaussian](../images/Update2/processed_slide_179_image_40.png)
 
 The best results seemed to be around a threshhold offset of 20. Thus, a smaller range of offsets was tested below around this value.
 
-![Image1_Threshold_2](../images/Update2/processed_slide_179_image_1_['30', '25', '20', '15'].png)
+![Image1_Threshold_2](../images/Update2/processed_slide_179_image_30.png)
 
-![Image1_Threshold_2_gaussian](../images/Update2/processed_slide_179_image_1_['30', '25', '20', '15']_gaussian.png)
+![Image1_Threshold_2_gaussian](../images/Update2/processed_slide_179_image_30.png)
 
 
-#### Example 2
+#### Example 1
 
-![Image2_Threshold_1](../images/Update2/processed_slide_7_image_1_['40', '20', '0', '-20'].png)
+Here is the original Image:
 
-![Image2_Threshold_1_gaussian](../images/Update2/processed_slide_7_image_1_['40', '20', '0', '-20']_gaussian.png)
+![Image2_Original](../images/Update2/original_slide_7_image_1.png)
 
-![Image2_Threshold_2](../images/Update2/processed_slide_7_image_1_['30', '25', '20', '15'].png)
+Now, here is the image after thresholding and gaussian blur:
 
-![Image2_Threshold_2_gaussian](../images/Update2/processed_slide_7_image_1_['30', '25', '20', '15']_gaussian.png)
+![Image2_Threshold_1](../images/Update2/processed_slide_7_image_40.png)
+
+![Image2_Threshold_1_gaussian](../images/Update2/processed_slide_7_image_40.png)
+
+![Image2_Threshold_2](../images/Update2/processed_slide_7_image_30.png)
+
+![Image2_Threshold_2_gaussian](../images/Update2/processed_slide_7_image_30.png)
+
 
 
 ### Skew Correction Testing
@@ -91,6 +106,7 @@ Pretty happy with the skew correction results. Might continue to play around wit
 - Skew correction was quite challenging to get right due to the harsh borders in the scans. Results here are acceptable.
 - The threshholding and gaussian blur values are still not perfect. I will continue to test these values next week.
 - I am not sure how to predict what preprocessing techniques will aid in OCR text recognition past the initial bounding box creation stage. I will need to do more research on this topic.
+
 
 
 ## References
