@@ -24,7 +24,7 @@ This project aims to transcribe the notes and lecture materials of French philos
 ## Recent Updates
 
 - [Update 1: Initial Approach, Text Segmentation, and Towards OCR Training](updates/reports/October30_2024.md)
-
+- [Update 2: Preprocessing: Normalization, Skew Correction, and Threshholding](updates/reports/November7_2024.md)
 
 ## Objectives
 
