@@ -43,7 +43,7 @@ I have included two images of differing complexity below to show the results of 
 
 Here is the original Image:
 
-![Image1_Original](../images/Update2/original_slide_179_image_1.png)
+![Image1_Original](../images/Update2/slide_179_image_1.png)
 
 Now, here is the image after thresholding and gaussian blur:
 
@@ -62,7 +62,7 @@ The best results seemed to be around a threshhold offset of 20. Thus, a smaller 
 
 Here is the original Image:
 
-![Image2_Original](../images/Update2/original_slide_7_image_1.png)
+![Image2_Original](../images/Update2/slide_7_image_1.png)
 
 Now, here is the image after thresholding and gaussian blur:
 
@@ -73,7 +73,6 @@ Now, here is the image after thresholding and gaussian blur:
 ![Image2_Threshold_2](../images/Update2/processed_slide_7_image_30.png)
 
 ![Image2_Threshold_2_gaussian](../images/Update2/processed_slide_7_image_30_gaussian.png)
-
 
 
 ### Skew Correction Testing
