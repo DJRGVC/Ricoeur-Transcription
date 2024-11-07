@@ -20,11 +20,18 @@ class SkewCorrection:
 
         scores = []
         angles = np.arange(-limit, limit + delta, delta)
+        # exclude 0 since it's the original image
+        angles = angles[angles != 0]
+
         for angle in angles:
             histogram, score = determine_score(thresh, angle)
             scores.append(score)
 
         best_angle = angles[scores.index(max(scores))]
+
+        # if score for 0 is twice as high as the next best angle, then don't rotate
+        if max(scores) > 2 * sorted(scores)[-2]:
+            best_angle = 0
 
         (h, w) = image.shape[:2]
         center = (w // 2, h // 2)
