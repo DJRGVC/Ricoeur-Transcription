@@ -1,6 +1,6 @@
 # Update 2: Preprocessing: Normalization, Skew Correction, and Threshholding
 
-**Date**: November 7, 2024
+**Date**: November 7, 2024  
 **Author**: Daniel Grant  
 **Institution**: Bowdoin College  
 

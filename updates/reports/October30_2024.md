@@ -1,6 +1,6 @@
 # Update 1: Initial Approach, Text Segmentation, and Towards OCR Training
 
-**Date**: October 30, 2021
+**Date**: October 30, 2021  
 **Author**: Daniel Grant  
 **Institution**: Bowdoin College  
 
@@ -20,6 +20,7 @@ To do this, I tested the following three tools:
 - [EasyOCR](https://github.com/JaidedAI/EasyOCR)
 - [Tesseract](https://github.com/tesseract-ocr/tesseract)
 - [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR/blob/main/README_en.md)
+
 
 ### Testing
 
@@ -49,6 +50,7 @@ Very inconsistent results with Tesseract. Not the tool best suited for the segme
 
 Not terrible, but clearly wide variation in results. From what I've found in their documentation, no room for parameter adjustment in their bounding box algo. Not sensitive enough.
 
+
 ### Next Steps
 
 I plan to next move forward with one of the aforementioned tools, most likely EasyOCR or PaddleOCR, as they seem to have the best results. Using these tools, I hope to explore methods of matching bounding boxes with ground truth data, potentially using Levenshtein distance or other string similarity metrics between the OCR output and the ground truth data. Once I have generated a sufficient amount of training/testing data, I will manually verify the results and begin to train a custom model.
@@ -56,6 +58,7 @@ I plan to next move forward with one of the aforementioned tools, most likely Ea
 ### Challenges
 
 This week I found some difficulty in implementing the various OCR tools text segmentation capabilities. I could not manage to get Keras-OCR to work, for example, and decided to stick to the three tools mentioned above, as they both are most starred OCR tools on github, and the best documented (in my opinion). The next step--that of matching bounding boxes with ground truth data--will be a much more challenging task.
+
 
 
 
