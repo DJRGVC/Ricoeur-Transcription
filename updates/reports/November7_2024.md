@@ -6,6 +6,7 @@
 
 ## Summary
 
+This week, I focused on improving OCR text segmentation for Paul Ricoeur’s handwritten notes by enhancing image preprocessing techniques. EasyOCR’s bounding box creation had previously shown mixed results, so I built a preprocessing pipeline to help it better identify text. My pipeline includes steps like normalization, greyscale conversion, shadow reduction, Gaussian blurring, thresholding, and skew correction. Skew correction was particularly challenging due to the strong borders in the scans, but with guidance from various resources, I managed to get satisfactory results. Testing emphasized Otsu’s thresholding with different offsets and Gaussian blur to tackle lighting inconsistencies and thin, fragmented text. So far, an offset around 20 seems most promising, though I’ll keep refining these values. Next steps include testing the impact of this preprocessing on EasyOCR’s segmentation accuracy and exploring methods to match bounding boxes with expert-created transcriptions.
 
 ## Detailed Description
 
@@ -32,25 +33,33 @@ Finally, I additionally tried using a slight gaussian blur to correct for the ha
 
 The results of this testing are shown below.
 
+
 ### Threshhold + Gaussian Testing
 
 I have included two images of differing complexity below to show the results of  my thresholding and gaussian blur testing.
 
 #### Example 1
 ![Image1_Threshold_1](../images/Update2/processed_slide_179_image_1_['40', '20', '0', '-20'].png)
+
 ![Image1_Threshold_1_gaussian](../images/Update2/processed_slide_179_image_1_['40', '20', '0', '-20']_gaussian.png)
 
 The best results seemed to be around a threshhold offset of 20. Thus, a smaller range of offsets was tested below around this value.
 
 ![Image1_Threshold_2](../images/Update2/processed_slide_179_image_1_['30', '25', '20', '15'].png)
+
 ![Image1_Threshold_2_gaussian](../images/Update2/processed_slide_179_image_1_['30', '25', '20', '15']_gaussian.png)
+
 
 #### Example 2
 
 ![Image2_Threshold_1](../images/Update2/processed_slide_7_image_1_['40', '20', '0', '-20'].png)
+
 ![Image2_Threshold_1_gaussian](../images/Update2/processed_slide_7_image_1_['40', '20', '0', '-20']_gaussian.png)
+
 ![Image2_Threshold_2](../images/Update2/processed_slide_7_image_1_['30', '25', '20', '15'].png)
+
 ![Image2_Threshold_2_gaussian](../images/Update2/processed_slide_7_image_1_['30', '25', '20', '15']_gaussian.png)
+
 
 ### Skew Correction Testing
 
@@ -82,6 +91,7 @@ Pretty happy with the skew correction results. Might continue to play around wit
 - Skew correction was quite challenging to get right due to the harsh borders in the scans. Results here are acceptable.
 - The threshholding and gaussian blur values are still not perfect. I will continue to test these values next week.
 - I am not sure how to predict what preprocessing techniques will aid in OCR text recognition past the initial bounding box creation stage. I will need to do more research on this topic.
+
 
 ## References
 
