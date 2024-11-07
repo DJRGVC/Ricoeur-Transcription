@@ -21,6 +21,7 @@ all_images = [img for img in os.listdir(images_path) if img.endswith('.png') or 
 # Select a random image
 image_name = random.choice(all_images)
 img_path = os.path.join(images_path, image_name)
+image_name = image_name.split('.')[0]
 
 # Load the random image
 img = cv2.imread(img_path)
@@ -45,34 +46,33 @@ def process_image(img, threshhold_offset, gaussian_blur=False, save_skew=False):
         result_planes.append(diff_img)
     img = cv2.merge(result_planes)
 
-    #Apply dilation and erosion to remove some noise
+    # Apply dilation and erosion to remove some noise
     kernel = np.ones((1, 1), np.uint8)
-    img = cv2.dilate(img, kernel, iterations=1)#increases the white region in the image 
-    img = cv2.erode(img, kernel, iterations=1) #erodes away the boundaries of foreground object
+
+    # increases the white region in the image 
+    img = cv2.dilate(img, kernel, iterations=1)
+
+    # erodes away the boundaries of foreground object
+    img = cv2.erode(img, kernel, iterations=1) 
 
 
-    #Apply blur to smooth out the edges
+    # Apply blur to smooth out the edges
     if gaussian_blur:
         img = cv2.GaussianBlur(img, (5, 5), 0)
-
-    # Apply threshold to get image with only b&w (binarization)
-    # Apply a custom threshold for black-and-white conversion
-    # custom_threshold = 100  # Adjust this value as needed (range: 0 to 255)
-    # _, img = cv2.threshold(img, custom_threshold, 255, cv2.THRESH_BINARY)
-    # img = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
-
 
     # Calculate Otsu's threshold and subtract an offset
     otsu_threshold, _ = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     adjusted_threshold = max(otsu_threshold + threshhold_offset, 0) 
     _, img = cv2.threshold(img, adjusted_threshold, 255, cv2.THRESH_BINARY)
 
-    # correct skew
-    show_image("Skewed Image", img)
-    original_img = img
-    angle, img = SkewCorrection.nathan_skew_correction(img, orig_img)
-    print(f"Angle of rotation: {angle}")
-    show_image("Unskewed Image", img)
+    # correct skew (UNCOMMENT THIS WHEN NOT TESTING THRESHHOLDS)
+    # show_image("Skewed Image", img)
+    # original_img = img
+    # angle, img = SkewCorrection.nathan_skew_correction(img, orig_img)
+    # print(f"Angle of rotation: {angle}")
+    # show_image("Unskewed Image", img)
+
+
 
     # Save the skew corrected image
     if save_skew:
@@ -126,56 +126,35 @@ def show_multiple_offsets(img, offsets, gaussian_blur=False, save=False):
 
     # Adjust space between images
     plt.subplots_adjust(hspace=0.05, wspace=0.05)
-    plt.show()
     # convert offsets to string
     offsets = [str(offset) for offset in offsets]
+    # remove .png from image name
     if save:
         if gaussian_blur:
             plt.savefig(f'{processed_images_path}/processed_{image_name}_{offsets}_gaussian.png')
         else:
             plt.savefig(f'{processed_images_path}/processed_{image_name}_{offsets}.png')
 
-# def show_multiple_offsets(img, offsets): # Threshold offsets to use
-#     # Display 3x3 grid of images
-#     fig, axes = plt.subplots(3, 3, figsize=(12, 12))
-#     fig.suptitle("Processed Images with Different Threshold Offsets", fontsize=16)
-# 
-#     # Iterate over the offsets and plot each processed image
-#     for i, offset in enumerate(offsets):
-#         # Process the image with the current offset
-#         processed_img = process_image(img, offset)
-#         
-#         # Determine row and column in the 3x3 grid
-#         row, col = divmod(i, 3)
-#         ax = axes[row, col]
-#         ax.imshow(processed_img, cmap='gray')
-#         ax.set_title(f"Offset: {offset}")
-#         ax.axis('off')
-# 
-#     # Hide any unused subplots (since we only have 8 offsets)
-#     for j in range(i + 1, 9):
-#         row, col = divmod(j, 3)
-#         axes[row, col].axis('off')
-# 
-#     plt.tight_layout()
-#     plt.show()
-
+    plt.show()
 
 # img = process_image(img)
 # show_image("Processed Image", img)
 
-img = process_image(img, 15, False, True)
+# img = process_image(img, 15, False, True)
 
 
 
 
-## TO GENERATE IMAGES FOR REPORT COMPARING OFFSETS AND GAUSSIAN BLUR
-# offsets = [40, 20, 0, -20]
-# show_multiple_offsets(img, offsets, False, False)
-# show_multiple_offsets(img, offsets, True, False)
-# 
-# offsets = [30, 23, 16, 11]
-# show_multiple_offsets(img, offsets, False, False)
-# show_multiple_offsets(img, offsets, True, False)
+# TO GENERATE IMAGES FOR REPORT COMPARING OFFSETS AND GAUSSIAN BLUR
+offsets = [40, 20, 0, -20]
+show_multiple_offsets(img, offsets, False, True)
+show_multiple_offsets(img, offsets, True, True)
+
+offsets = [30, 25, 20, 15]
+show_multiple_offsets(img, offsets, False, True)
+show_multiple_offsets(img, offsets, True, True)
+
+# also save original, unprocessed image
+show_original_image(img, True)
 
 

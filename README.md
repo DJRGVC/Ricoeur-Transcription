@@ -1,7 +1,7 @@
 # Paul Ricoeur Transcription Project (Digital Ricoeur)
 
 <p align="center">
-  <img src="https://github.com/DJRGVC/Ricoeur-Transcription/blob/master/updates/images/ricoeur_headshot.jpg?raw=true" alt="Ricoeur"/>
+  <img src="https://github.com/DJRGVC/Ricoeur-Transcription/blob/master/updates/images/readme/ricoeur_headshot.jpg?raw=true" alt="Ricoeur"/>
 </p>
 
 **Author**: Daniel Grant  
@@ -38,6 +38,7 @@ This project aims to transcribe the notes and lecture materials of French philos
 
 - [x] Expert-verified transcription of 400+ pages of handwritten Ricoeur Notes
 - [x] Convert into labelled dataset with image + transcription pairs
+- [x] Preprocess image (normalization, skew correction, threshholding, etc.)
 - [x] Complete text segmentation to create OCR training pipeline friendly dataset
 - [ ] Match bounding boxes with ground-truth data
 - [ ] Train OCR model(s), compare efficacy by testing with ground-truth data
@@ -57,7 +58,7 @@ This project aims to transcribe the notes and lecture materials of French philos
 
 ## Examples (of Ricoeur's Handwriting)
 
-![Example_1](updates/images/readme_ex_415.png)
+![Example_1](updates/images/readme/readme_ex_415.png)
 
 `Figure 1: Example of Ricoeur's Handwriting`
 
@@ -68,7 +69,7 @@ The applicability of rules to instances does not require a commerce between facu
 32, 61, 66, 97
 
 
-![Example_2](updates/images/readme_ex_435.png)
+![Example_2](updates/images/readme/readme_ex_435.png)
 
 `Figure 2: Example of Ricoeur's Handwriting`
 

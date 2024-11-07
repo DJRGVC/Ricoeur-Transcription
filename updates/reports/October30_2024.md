@@ -27,25 +27,25 @@ The following are some results of my testing:
 
 **EasyOCR**:
 
-![EasyOCR_1](../images/slide_160_image_1.png_easyOCR.png)
-![EasyOCR_2](../images/slide_26_image_1.png_easyOCR.png)
-![EasyOCR_3](../images/slide_442_image_1.png_easyOCR.png)
+![EasyOCR_1](../images/Update1/slide_160_image_1.png_easyOCR.png)
+![EasyOCR_2](../images/Update1/slide_26_image_1.png_easyOCR.png)
+![EasyOCR_3](../images/Update1/slide_442_image_1.png_easyOCR.png)
 
 Most promising. Segmentation seems to be somewhat more granular when compared to Paddle OCR. Seems optimal, between these three, for the generation of an OCR dataset.
 
 **Tesseract**:
 
-![Tesseract_1](../images/slide_112_image_1.png_tesseractOCR.png) 
-![Tesseract_2](../images/slide_247_image_1.png_tesseractOCR.png) 
-![Tesseract_3](../images/slide_437_image_1.png_tesseractOCR.png) 
+![Tesseract_1](../images/Update1/slide_112_image_1.png_tesseractOCR.png) 
+![Tesseract_2](../images/Update1/slide_247_image_1.png_tesseractOCR.png) 
+![Tesseract_3](../images/Update1/slide_437_image_1.png_tesseractOCR.png) 
 
 Very inconsistent results with Tesseract. Not the tool best suited for the segmentation of handwritten text.
 
 **PaddleOCR**:
 
-![PaddleOCR_1](../images/slide_119_image_1.png_paddleOCR.png)
-![PaddleOCR_2](../images/slide_332_image_1.png_paddleOCR.png)
-![PaddleOCR_3](../images/slide_419_image_1.png_paddleOCR.png)
+![PaddleOCR_1](../images/Update1/slide_119_image_1.png_paddleOCR.png)
+![PaddleOCR_2](../images/Update1/slide_332_image_1.png_paddleOCR.png)
+![PaddleOCR_3](../images/Update1/slide_419_image_1.png_paddleOCR.png)
 
 Not terrible, but clearly wide variation in results. From what I've found in their documentation, no room for parameter adjustment in their bounding box algo. Not sensitive enough.
 
@@ -56,6 +56,7 @@ I plan to next move forward with one of the aforementioned tools, most likely Ea
 ### Challenges
 
 This week I found some difficulty in implementing the various OCR tools text segmentation capabilities. I could not manage to get Keras-OCR to work, for example, and decided to stick to the three tools mentioned above, as they both are most starred OCR tools on github, and the best documented (in my opinion). The next step--that of matching bounding boxes with ground truth data--will be a much more challenging task.
+
 
 
 ## References
