@@ -49,16 +49,16 @@ Now, here is the image after thresholding and gaussian blur:
 
 ![Image1_Threshold_1](../images/Update2/processed_slide_179_image_40.png)
 
-![Image1_Threshold_1_gaussian](../images/Update2/processed_slide_179_image_40.png)
+![Image1_Threshold_1_gaussian](../images/Update2/processed_slide_179_image_40_gaussian.png)
 
 The best results seemed to be around a threshhold offset of 20. Thus, a smaller range of offsets was tested below around this value.
 
 ![Image1_Threshold_2](../images/Update2/processed_slide_179_image_30.png)
 
-![Image1_Threshold_2_gaussian](../images/Update2/processed_slide_179_image_30.png)
+![Image1_Threshold_2_gaussian](../images/Update2/processed_slide_179_image_30_gaussian.png)
 
 
-#### Example 1
+#### Example 2
 
 Here is the original Image:
 
@@ -68,11 +68,11 @@ Now, here is the image after thresholding and gaussian blur:
 
 ![Image2_Threshold_1](../images/Update2/processed_slide_7_image_40.png)
 
-![Image2_Threshold_1_gaussian](../images/Update2/processed_slide_7_image_40.png)
+![Image2_Threshold_1_gaussian](../images/Update2/processed_slide_7_image_40_gaussian.png)
 
 ![Image2_Threshold_2](../images/Update2/processed_slide_7_image_30.png)
 
-![Image2_Threshold_2_gaussian](../images/Update2/processed_slide_7_image_30.png)
+![Image2_Threshold_2_gaussian](../images/Update2/processed_slide_7_image_30_gaussian.png)
 
 
 
@@ -94,6 +94,7 @@ I have included three examples (picked at random) of skew correction below.
 
 
 Pretty happy with the skew correction results. Might continue to play around with threshhold offsets and gaussian blur values for next week, testing in conjunction with EasyOCR's bounding box creation.
+
 
 ### Next Steps
 

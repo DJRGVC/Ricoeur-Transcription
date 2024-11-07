@@ -126,14 +126,16 @@ def show_multiple_offsets(img, offsets, gaussian_blur=False, save=False):
 
     # Adjust space between images
     plt.subplots_adjust(hspace=0.05, wspace=0.05)
+
     # convert offsets to string
-    offsets = [str(offset) for offset in offsets]
+    offset = str(offsets[0])
+
     # remove .png from image name
     if save:
         if gaussian_blur:
-            plt.savefig(f'{processed_images_path}/processed_{image_name}_{offsets}_gaussian.png')
+            plt.savefig(f'{processed_images_path}/processed_{image_name}_{offset}_gaussian.png')
         else:
-            plt.savefig(f'{processed_images_path}/processed_{image_name}_{offsets}.png')
+            plt.savefig(f'{processed_images_path}/processed_{image_name}_{offset}.png')
 
     plt.show()
 
