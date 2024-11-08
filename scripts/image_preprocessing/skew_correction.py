@@ -3,6 +3,7 @@ import numpy as np
 from scipy.ndimage import interpolation as inter
 import pytesseract
 
+# Class to correct skewness in the image (imported as a module in OCR...py)
 class SkewCorrection:
     # Method adapted from: nathancy
     # https://stackoverflow.com/questions/57964634/python-opencv-skew-correction-for-ocr
