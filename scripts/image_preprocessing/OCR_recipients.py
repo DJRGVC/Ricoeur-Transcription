@@ -13,7 +13,7 @@ from skew_correction import SkewCorrection
 images_path = '../../raw_data/images'
 
 # define path to save the processed images
-processed_images_path = '../../updates/images'
+processed_images_path = '../../raw_data/processed_images'
 
 # Get a list of all image files in the directory
 all_images = [img for img in os.listdir(images_path) if img.endswith('.png') or img.endswith('.jpg')]
@@ -66,17 +66,17 @@ def process_image(img, threshhold_offset, gaussian_blur=False, save_skew=False):
     _, img = cv2.threshold(img, adjusted_threshold, 255, cv2.THRESH_BINARY)
 
     # correct skew (UNCOMMENT THIS WHEN NOT TESTING THRESHHOLDS)
-    # show_image("Skewed Image", img)
-    # original_img = img
-    # angle, img = SkewCorrection.nathan_skew_correction(img, orig_img)
-    # print(f"Angle of rotation: {angle}")
-    # show_image("Unskewed Image", img)
+    show_image("Skewed Image", img)
+    original_img = img
+    angle, img = SkewCorrection.nathan_skew_correction(img, orig_img)
+    print(f"Angle of rotation: {angle}")
+    show_image("Unskewed Image", img)
 
 
 
     # Save the skew corrected image
     if save_skew:
-        # save the skew corrected image
+        # save the skew corrected image as jpg in processed image path
         cv2.imwrite(f'{processed_images_path}/skew_corrected_{image_name}', img)
         # save the original image
         cv2.imwrite(f'{processed_images_path}/original_{image_name}', original_img)
@@ -142,21 +142,21 @@ def show_multiple_offsets(img, offsets, gaussian_blur=False, save=False):
 # img = process_image(img)
 # show_image("Processed Image", img)
 
-# img = process_image(img, 15, False, True)
+img = process_image(img, 15, False, True)
 
 
 
 
 # TO GENERATE IMAGES FOR REPORT COMPARING OFFSETS AND GAUSSIAN BLUR
-offsets = [40, 20, 0, -20]
-show_multiple_offsets(img, offsets, False, True)
-show_multiple_offsets(img, offsets, True, True)
-
-offsets = [30, 25, 20, 15]
-show_multiple_offsets(img, offsets, False, True)
-show_multiple_offsets(img, offsets, True, True)
-
-# also save original, unprocessed image
-show_original_image(img, True)
+# offsets = [40, 20, 0, -20]
+# show_multiple_offsets(img, offsets, False, True)
+# show_multiple_offsets(img, offsets, True, True)
+# 
+# offsets = [30, 25, 20, 15]
+# show_multiple_offsets(img, offsets, False, True)
+# show_multiple_offsets(img, offsets, True, True)
+# 
+# # also save original, unprocessed image
+# show_original_image(img, True)
 
 
