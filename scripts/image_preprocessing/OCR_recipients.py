@@ -35,7 +35,8 @@ def process_image(img, threshhold_offset, gaussian_blur=False, save_skew=False):
 
     # Converting to gray scale
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    #Removing Shadows
+
+    # Removing Shadows
     rgb_planes = cv2.split(img)
     result_planes = []
     result_norm_planes = []
@@ -66,7 +67,6 @@ def process_image(img, threshhold_offset, gaussian_blur=False, save_skew=False):
     _, img = cv2.threshold(img, adjusted_threshold, 255, cv2.THRESH_BINARY)
 
     # correct skew (UNCOMMENT THIS WHEN NOT TESTING THRESHHOLDS)
-    show_image("Skewed Image", img)
     original_img = img
     angle, img = SkewCorrection.nathan_skew_correction(img, orig_img)
     print(f"Angle of rotation: {angle}")
@@ -142,7 +142,22 @@ def show_multiple_offsets(img, offsets, gaussian_blur=False, save=False):
 # img = process_image(img)
 # show_image("Processed Image", img)
 
-img = process_image(img, 15, False, True)
+img = process_image(img, 15, False, False)
+
+# function to take a single image, process it, rotate it, display it, and optionally save it as a jpg to the processed images path.
+def show_single_rotated_and_processed_image(img, offset=15, gaussian_blur=False, save=False):
+    # Process the image
+    processed_img = process_image(img, offset, gaussian_blur, False)
+    # Display the processed image
+    show_image("Processed Image", processed_img)
+
+    # Save the processed image
+    if save:
+        # save the processed image as jpg in processed image path
+        cv2.imwrite(f'{processed_images_path}/processed_{image_name}', processed_img)
+
+show_single_rotated_and_processed_image(img, 15, False, True)
+
 
 
 
