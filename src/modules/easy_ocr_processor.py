@@ -35,6 +35,19 @@ class EasyOCRProcessor:
         img_path = os.path.join(self.images_path, image_name)
         return image_name, Image.open(img_path).convert('RGB')
 
+    def get_image(self, img_path):
+        """
+        Load and preprocess the image for OCR.
+        
+        Args:
+            img_path (str): Path to the image file.
+        
+        Returns:
+            PIL.Image: Preprocessed image.
+        """
+        img = Image.open(img_path).convert('RGB')
+        return img
+
     def perform_easyocr(self, img_path):
         """
         Perform OCR using EasyOCR.
@@ -48,7 +61,7 @@ class EasyOCRProcessor:
         reader = easyocr.Reader(['en'])
         return reader.readtext(img_path)
 
-    def draw_results(self, image, results, save=False, output_name="ocr_paddle"):
+    def draw_results(self, image, results, show=False, save=False, output_name="ocr_paddle"):
         """
         Draw bounding boxes and text using results from EasyOCR.
 
@@ -65,7 +78,8 @@ class EasyOCRProcessor:
 
         draw_img = draw_ocr(image, boxes, words, font_path=self.font_path)
         draw_img_pil = Image.fromarray(draw_img)
-        draw_img_pil.show()
+        if show:
+            draw_img_pil.show()
 
         if save:
             save_path = os.path.join(self.save_path, f"{output_name}.png")
@@ -96,4 +110,4 @@ if __name__ == "__main__":
     # Perform OCR with EasyOCR
     img_path = os.path.join(images_path, image_name)
     easyocr_results = ocr_processor.perform_easyocr(img_path)
-    ocr_processor.draw_results(img, easyocr_results, save=False, output_name=f"{image_name}_easyOCR")
+    ocr_processor.draw_results(img, easyocr_results, show=True, save=False, output_name=f"{image_name}_easyOCR")

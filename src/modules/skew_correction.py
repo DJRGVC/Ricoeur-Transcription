@@ -101,4 +101,7 @@ class SkewCorrection:
 
         return angle, rotated_image
 
+# Example Usage:
+if __name__ == "__main__":
+    print("Skew Correction Module")
 

@@ -1,10 +1,10 @@
 import os
 import random
-import cv2
+import cv2 
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
-from skew_correction import SkewCorrection
+from modules.skew_correction import SkewCorrection
 
 class ImagePreprocessor:
     """
@@ -55,6 +55,7 @@ class ImagePreprocessor:
         img = cv2.dilate(img, kernel, iterations=1)
         img = cv2.erode(img, kernel, iterations=1)
 
+        # Gaussian blur
         if gaussian_blur:
             img = cv2.GaussianBlur(img, (5, 5), 0)
 
@@ -104,6 +105,11 @@ class ImagePreprocessor:
         plt.tight_layout()
         plt.show()
 
+    def convert_to_pil_image(self, img):
+        """
+        Convert a NumPy image to a PIL image.
+        """
+        return Image.fromarray(img).convert('RGB')
 
 # Example Usage:
 if __name__ == "__main__":
@@ -112,6 +118,6 @@ if __name__ == "__main__":
 
     processor = ImagePreprocessor(images_path, processed_images_path)
     image_name, img = processor.load_random_image()
-    processed_img, angle = processor.process_image(img, threshold_offset=15, gaussian_blur=False, save_skew=True, image_name=image_name)
+    processed_img, angle = processor.process_image(img, threshold_offset=18, gaussian_blur=False, save_skew=True, image_name=image_name)
     processor.show_image("Processed Image", processed_img)
 
