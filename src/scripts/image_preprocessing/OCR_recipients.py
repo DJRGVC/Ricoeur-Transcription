@@ -2,7 +2,7 @@ import os
 import random
 import cv2
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 import tempfile
 import matplotlib.pyplot as plt
 
@@ -31,10 +31,12 @@ def process_image(img, threshhold_offset, gaussian_blur=False, save_skew=False):
     img = cv2.resize(img, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
     orig_img = img.copy()
 
-
+    print("processing")
 
     # Converting to gray scale
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    print("converted to gray")
 
     # Removing Shadows
     rgb_planes = cv2.split(img)
@@ -47,24 +49,34 @@ def process_image(img, threshhold_offset, gaussian_blur=False, save_skew=False):
         result_planes.append(diff_img)
     img = cv2.merge(result_planes)
 
+    print("removed shadows")
+
     # Apply dilation and erosion to remove some noise
     kernel = np.ones((1, 1), np.uint8)
+
+    print("applying dilation and erosion")
 
     # increases the white region in the image 
     img = cv2.dilate(img, kernel, iterations=1)
 
+    print("dilated")
+
     # erodes away the boundaries of foreground object
     img = cv2.erode(img, kernel, iterations=1) 
 
+    print("eroded")
 
     # Apply blur to smooth out the edges
     if gaussian_blur:
         img = cv2.GaussianBlur(img, (5, 5), 0)
+        print("blurred")
 
     # Calculate Otsu's threshold and subtract an offset
     otsu_threshold, _ = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     adjusted_threshold = max(otsu_threshold + threshhold_offset, 0) 
     _, img = cv2.threshold(img, adjusted_threshold, 255, cv2.THRESH_BINARY)
+
+    print("thresholded")
 
     # correct skew (UNCOMMENT THIS WHEN NOT TESTING THRESHHOLDS)
     original_img = img
@@ -72,7 +84,7 @@ def process_image(img, threshhold_offset, gaussian_blur=False, save_skew=False):
     print(f"Angle of rotation: {angle}")
     show_image("Unskewed Image", img)
 
-
+    print("skew corrected")
 
     # Save the skew corrected image
     if save_skew:
@@ -80,6 +92,8 @@ def process_image(img, threshhold_offset, gaussian_blur=False, save_skew=False):
         cv2.imwrite(f'{processed_images_path}/skew_corrected_{image_name}', img)
         # save the original image
         cv2.imwrite(f'{processed_images_path}/original_{image_name}', original_img)
+
+        print("saved skew corrected image")
 
     return img
 
@@ -142,19 +156,28 @@ def show_multiple_offsets(img, offsets, gaussian_blur=False, save=False):
 # img = process_image(img)
 # show_image("Processed Image", img)
 
-img = process_image(img, 15, False, False)
+# img = process_image(img, 15, False, False)
 
 # function to take a single image, process it, rotate it, display it, and optionally save it as a jpg to the processed images path.
 def show_single_rotated_and_processed_image(img, offset=15, gaussian_blur=False, save=False):
     # Process the image
+    print("uno")
     processed_img = process_image(img, offset, gaussian_blur, False)
+    print("dos")
     # Display the processed image
     show_image("Processed Image", processed_img)
 
+    print("tres")
+
     # Save the processed image
     if save:
-        # save the processed image as jpg in processed image path
-        cv2.imwrite(f'{processed_images_path}/processed_{image_name}', processed_img)
+        # convert the processed image to a PIL image
+        draw_img_pil = Image.fromarray(processed_img)
+
+        # save the processed image
+        draw_img_pil.save(f'{processed_images_path}/processed_{image_name}.jpg')
+
+        print("saved processed image")
 
 show_single_rotated_and_processed_image(img, 15, False, True)
 
