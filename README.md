@@ -25,6 +25,8 @@ This project aims to transcribe the notes and lecture materials of French philos
 
 - [Update 1: Initial Approach, Text Segmentation, and Towards OCR Training](updates/reports/October30_2024.md)
 - [Update 2: Preprocessing: Normalization, Skew Correction, and Threshholding](updates/reports/November7_2024.md)
+- [Update 3: Testing: OCR on Preprocessed images, Training Data Generation](updates/reports/December8_2024.md)
+
 
 ## Objectives
 
@@ -39,7 +41,8 @@ This project aims to transcribe the notes and lecture materials of French philos
 - [x] Expert-verified transcription of 400+ pages of handwritten Ricoeur Notes
 - [x] Convert into labelled dataset with image + transcription pairs
 - [x] Preprocess image (normalization, skew correction, threshholding, etc.)
-- [x] Complete text segmentation to create OCR training pipeline friendly dataset
+- [x] Complete text segmentation
+- [x] Generate word-level training data
 - [ ] Match bounding boxes with ground-truth data
 - [ ] Train OCR model(s), compare efficacy by testing with ground-truth data
 
