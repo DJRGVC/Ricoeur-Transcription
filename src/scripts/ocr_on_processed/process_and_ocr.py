@@ -1,11 +1,10 @@
 import os
 import sys
 
-# Add the src directory to the Python path
-# Add the path to the 'modules' folder relative to the script
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'modules')))
-
-
+MODULES_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../src'))
+sys.path.append(MODULES_DIR)
+print("Current working directory:", os.getcwd())
+print("Python path:", sys.path)
 
 from modules.easy_ocr_processor import EasyOCRProcessor
 from modules.image_preprocessor import ImagePreprocessor
