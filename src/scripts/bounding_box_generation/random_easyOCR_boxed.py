@@ -1,8 +1,13 @@
+print("os")
 import os
+print("random")
 import random
+print("easyOCR")
 import easyocr
+print("PIL")
 from PIL import Image, ImageDraw
-from paddleocr import PaddleOCR, draw_ocr
+print("paddleocr")
+from paddleocr import draw_ocr
 
 
 print("imports completed")

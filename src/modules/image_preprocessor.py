@@ -107,8 +107,8 @@ class ImagePreprocessor:
 
 # Example Usage:
 if __name__ == "__main__":
-    images_path = "../../raw_data/images"
-    processed_images_path = "../../raw_data/processed_images"
+    images_path = "../raw_data/images"
+    processed_images_path = "../raw_data/processed_images"
 
     processor = ImagePreprocessor(images_path, processed_images_path)
     image_name, img = processor.load_random_image()

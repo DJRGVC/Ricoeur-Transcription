@@ -1,16 +1,16 @@
 import os
 import random
 from PIL import Image
-from paddleocr import PaddleOCR, draw_ocr
+from paddleocr import draw_ocr
 import easyocr
 
 
 class EasyOCRProcessor:
     """
-    A utility class for performing OCR using EasyOCR or PaddleOCR and processing results.
+    A utility class for performing OCR using EasyOCR and processing results.
     """
 
-    def __init__(self, images_path, save_path, font_path=None):
+    def __init__(self, images_path, save_path, font_path="/Library/Fonts/Arial.ttf"):
         """
         Initialize the OCRProcessor with paths for images and saving results.
         
@@ -33,7 +33,7 @@ class EasyOCRProcessor:
             raise FileNotFoundError("No images found in the specified directory.")
         image_name = random.choice(all_images)
         img_path = os.path.join(self.images_path, image_name)
-        return image_name, Image.open(img_path)
+        return image_name, Image.open(img_path).convert('RGB')
 
     def perform_easyocr(self, img_path):
         """
@@ -48,45 +48,9 @@ class EasyOCRProcessor:
         reader = easyocr.Reader(['en'])
         return reader.readtext(img_path)
 
-    def draw_results_easyocr(self, image, results, save=False, output_name="ocr_easy"):
+    def draw_results(self, image, results, save=False, output_name="ocr_paddle"):
         """
         Draw bounding boxes and text using results from EasyOCR.
-
-        Args:
-            image (PIL.Image.Image): The input image.
-            results (list): OCR results with bounding boxes and text.
-            save (bool): Whether to save the processed image.
-            output_name (str): Name for the saved image.
-        """
-        boxes = [line[0] for line in results]
-        words = [line[1] for line in results]
-        if self.font_path is None:
-            raise ValueError("Font path must be specified for EasyOCR visualization.")
-        draw_img = draw_ocr(image, boxes, words, font_path=self.font_path)
-        draw_img_pil = Image.fromarray(draw_img)
-        draw_img_pil.show()
-
-        if save:
-            save_path = os.path.join(self.save_path, f"{output_name}.png")
-            draw_img_pil.save(save_path)
-            print(f"Saved EasyOCR result to {save_path}")
-
-    def perform_paddleocr(self, img_path):
-        """
-        Perform OCR using PaddleOCR.
-
-        Args:
-            img_path (str): Path to the image file.
-        
-        Returns:
-            tuple: OCR results including boxes, text, and confidence scores.
-        """
-        ocr = PaddleOCR(use_angle_cls=True, lang='en')
-        return ocr.ocr(img_path, cls=True)
-
-    def draw_results_paddleocr(self, img_path, results, save=False, output_name="ocr_paddle"):
-        """
-        Draw bounding boxes and text using results from PaddleOCR.
 
         Args:
             img_path (str): Path to the image file.
@@ -94,14 +58,12 @@ class EasyOCRProcessor:
             save (bool): Whether to save the processed image.
             output_name (str): Name for the saved image.
         """
-        image = Image.open(img_path).convert('RGB')
-        boxes, texts, scores = [], [], []
-        for result in results[0]:
-            boxes.append(result[0])
-            texts.append(result[1][0])
-            scores.append(result[1][1])
+        boxes, words = [], []
+        for line in results:
+            boxes.append(line[0])
+            words.append(line[1])
 
-        draw_img = draw_ocr(image, boxes, texts, scores, font_path=self.font_path)
+        draw_img = draw_ocr(image, boxes, words, font_path=self.font_path)
         draw_img_pil = Image.fromarray(draw_img)
         draw_img_pil.show()
 
@@ -113,21 +75,25 @@ class EasyOCRProcessor:
 
 # Example Usage
 if __name__ == "__main__":
+
+    print("Running OCR Processor Example...")
+
     images_path = "../raw_data/images"
     save_path = "../updates/images"
     font_path = "/Library/Fonts/Arial.ttf"  # Adjust to the correct path for your system
 
+    print("Initializing OCR Processor...")
+
     ocr_processor = EasyOCRProcessor(images_path, save_path, font_path)
+
+    print("Performing OCR on a random image...")
     
     # Load a random image
     image_name, img = ocr_processor.get_random_image()
 
+    print(f"Processing image: {image_name}")
+
     # Perform OCR with EasyOCR
     img_path = os.path.join(images_path, image_name)
     easyocr_results = ocr_processor.perform_easyocr(img_path)
-    ocr_processor.draw_results_easyocr(img, easyocr_results, save=True, output_name=f"{image_name}_easyOCR")
-
-    # Perform OCR with PaddleOCR
-    paddleocr_results = ocr_processor.perform_paddleocr(img_path)
-    ocr_processor.draw_results_paddleocr(img_path, paddleocr_results, save=True, output_name=f"{image_name}_paddleOCR")
-
+    ocr_processor.draw_results(img, easyocr_results, save=False, output_name=f"{image_name}_easyOCR")
