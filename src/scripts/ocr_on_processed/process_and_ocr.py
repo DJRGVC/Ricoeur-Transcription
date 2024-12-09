@@ -15,8 +15,12 @@ def process_and_ocr():
     # Define paths
     images_path = "../../raw_data/images"
     processed_images_path = "../../raw_data/processed_images"
-    save_path = "../../updates/images"
+    save_path = "../../../updates/images"
     font_path = "/Library/Fonts/Arial.ttf"  # Adjust to the correct path for your system
+
+    # Variables
+    threshhold = 18
+    blur = True
 
     print(f"Images path: {images_path}")
 
@@ -29,7 +33,7 @@ def process_and_ocr():
 
     # Load a random image and preprocess it
     image_name, img = image_preprocessor.load_random_image()
-    processed_img, angle = image_preprocessor.process_image(img, threshold_offset=20, gaussian_blur=True, save_skew=False, image_name=image_name)
+    processed_img, angle = image_preprocessor.process_image(img, threshold_offset=threshhold, gaussian_blur=blur, save_skew=False, image_name=image_name)
 
     # Show the preprocessed image
     print("Showing Image...")
@@ -58,7 +62,7 @@ def process_and_ocr():
     print("Drawing bounding boxes on the processed image...")
     
     # Draw bounding boxes on the processed image
-    ocr_processor.draw_results(processed_img, easyocr_results, show=True, save=False, output_name=f"{image_name}_easyOCR")
+    ocr_processor.draw_results(processed_img, easyocr_results, show=True, save=True, output_name=f"{image_name}_easyOCR")
 
 if __name__ == "__main__":
     process_and_ocr()

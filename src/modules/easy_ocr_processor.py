@@ -93,7 +93,7 @@ if __name__ == "__main__":
     print("Running OCR Processor Example...")
 
     images_path = "../raw_data/images"
-    save_path = "../updates/images"
+    save_path = "../../updates/images"
     font_path = "/Library/Fonts/Arial.ttf"  # Adjust to the correct path for your system
 
     print("Initializing OCR Processor...")

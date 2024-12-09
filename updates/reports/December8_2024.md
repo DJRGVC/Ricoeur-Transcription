@@ -48,41 +48,50 @@ Now, with a constant threshold offset (18) and gaussian blur (5x5) applied to th
 
 #### Example 1
 
-![Example1_Bounded](../images/Update3/slide_179_image_1.png)
-![Example1_Transcription](../images/Update3/slide_179_image_1.png)
+![Example1_Bounded](Ex1_bounded.png)
+![Example1_Transcription1](Ex1_T1.png)
+![Example1_Transcription2](Ex1_T2.png)
+
 
 #### Example 2
 
-![Example2_Bounded](../images/Update3/slide_179_image_1.png)
-![Example2_Transcription](../images/Update3/slide_179_image_1.png)
+![Example2_Bounded](Ex2_bounded.png)
+![Example2_Transcription1](Ex2_T1.png)
+![Example2_Transcription2](Ex2_T2.png)
+
 
 #### Example 3
 
-![Example3_Bounded](../images/Update3/slide_179_image_1.png)
-![Example3_Transcription](../images/Update3/slide_179_image_1.png)
+![Example3_Bounded](Ex3_bounded.png)
+![Example3_Transcription1](Ex3_T1.png)
+
 
 ### Next Steps
 
-- Migrate to isolating single bounding boxes, export to image files,
+- Determine whether fine-tuning EasyOCR will be sufficient for my needs. If not, I will need to run a full training pipeline on the data.
+- Depending on the above, may need toi begin to generate my own training data. This may involve multiple passes with bounding box generation and OCR on the processed images.
+- Maybe optimize the preprocessing pipeline further? I do not think this is necessary at this point as I would like to focus my efforts on the OCR pipeline itself.
+
 
 ### Challenges
 
-- Skew correction was quite challenging to get right due to the harsh borders in the scans. Results here are acceptable.
-- The threshholding and gaussian blur values are still not perfect. I will continue to test these values next week.
-- I am not sure how to predict what preprocessing techniques will aid in OCR text recognition past the initial bounding box creation stage. I will need to do more research on this topic.
+- Clearly the out-of-the-box transcription for OCR does not work at all, even with a performant preprocessing pipeline. 
+- I am unsure whether fine-tuning EasyOCR will be sufficient for my needs. Might need to run a full training pipeline on the data.
 
-
+Still, Good progress thus far! Next steps are the fun part.
 
 
 ## References
 
-- [Netra Prasad Neupane's Post](https://netraneupane.medium.com/text-skewness-correction-a51fd3a27157)
-- [Nathancy's Post](https://stackoverflow.com/questions/57964634/python-opencv-skew-correction-for-ocr)
-- [Sreekiran A R's Post](https://stackoverflow.com/questions/62670920/90-degree-skew-correction-for-ocr-in-opencv-python)
+- [Python Modules](https://docs.python.org/3/tutorial/modules.html)
+- [EasyOCR](https://github.com/JaidedAI/EasyOCR)
+- [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
 - [Otsu's Thresholding Method](https://ieeexplore.ieee.org/document/4310076)
+- [Gaussian Blur](https://en.wikipedia.org/wiki/Gaussian_blur)
 
 ---
 
 *For more information on the Paul Ricoeur Transcription Project, visit the [Digital Ricoeur Portal](https://www.digitalricoeurportal.org/digital-ricoeur/).*
+
 
 
