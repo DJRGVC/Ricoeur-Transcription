@@ -48,22 +48,25 @@ Now, with a constant threshold offset (18) and gaussian blur (5x5) applied to th
 
 #### Example 1
 
-![Example1_Bounded](Ex1_bounded.png)
-![Example1_Transcription1](Ex1_T1.png)
-![Example1_Transcription2](Ex1_T2.png)
+![Example1_Bounded](../images/Update3/Ex1_bounded.png)
+![Example1_Transcription1](../images/Update3/Ex1_T1.png)
+![Example1_Transcription2](../images/Update3/Ex1_T2.png)
+
 
 
 #### Example 2
 
-![Example2_Bounded](Ex2_bounded.png)
-![Example2_Transcription1](Ex2_T1.png)
-![Example2_Transcription2](Ex2_T2.png)
+![Example2_Bounded](../images/Update3/Ex2_bounded.png)
+![Example2_Transcription1](../images/Update3/Ex2_T1.png)
+![Example2_Transcription2](../images/Update3/Ex2_T2.png)
+
 
 
 #### Example 3
 
-![Example3_Bounded](Ex3_bounded.png)
-![Example3_Transcription1](Ex3_T1.png)
+![Example3_Bounded](../images/Update3/Ex3_bounded.png)
+![Example3_Transcription1](../images/Update3/Ex3_T1.png)
+
 
 
 ### Next Steps
